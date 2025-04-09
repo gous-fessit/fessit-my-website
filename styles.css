@@ -478,6 +478,78 @@ main {
     background-color: #4b0564;
 }
 
+/* About Section */
+.about {
+    padding: 40px 20px;
+    text-align: center;
+    min-height: 90vh;
+    background-color: #f8f9fa;
+	margin-top: 80px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.about-card {
+    display: flex; /* ➜ Enables horizontal layout */
+    flex-wrap: wrap; /* ➜ Makes it responsive */
+    gap: 20px;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(255, 10, 100, 0.2);
+    transition: transform 0.3s ease-in-out;
+    padding: 10px 40px; /* Optional: add spacing inside the card */
+}
+
+.about-card:hover {
+    transform: translateY(-2px);
+	background: #F0F0F0;
+}
+
+.about-content {
+    flex: 1;
+    min-width: 280px;
+	margin: 0;  /* Removes default margin */
+    padding: 0px; /* Removes default padding */
+	font-family: 'Helvetica', sans-serif !important;
+}
+
+.about-image-content {
+    flex: none;
+}
+
+.about-image {
+    max-width: 150px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.about-content p {
+    font-family: 'Inter', sans-serif !important;
+	color: #022914;
+}
+
+.about h2 {
+    padding: 10px 10px; /* Optional: add spacing */
+	margin-bottom: 10px;
+}
+
+.about-content h3 {
+    text-align: left;
+	margin: 0;  /* Removes default margin */
+    padding: 0; /* Removes default padding */
+	padding: 20px 0px; /* Optional: add spacing */
+	margin-top: -20px; /* Adjust this value to move it up */
+	color: #0A100D;
+	font-family: 'Inter', sans-serif !important;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
