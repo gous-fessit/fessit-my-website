@@ -10,6 +10,7 @@ html, body {
     height: 100%;
     background-color: #000; /* Ensure the background is black */
     overflow-x: hidden; /* Prevent horizontal scroll */
+	font-family: 'Roboto', sans-serif;
 }
 
 /* Import Bradley Hand ITC Font (adjust the path to your font file) */
@@ -129,7 +130,7 @@ main {
 
 .left-column h2, .right-column h2 {
     font-size: 28px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     color: #F5A000; /* Light orange */
     font-family: "Bradley Hand ITC", Helvetica, Arial, sans-serif;
 }
@@ -140,7 +141,7 @@ main {
     margin-bottom: 50px;
     text-align: justify;
     color: #bfbfbf;
-    font-family: "Avenir Next Pro", Helvetica, Arial, sans-serif;
+    font-family: 'DM Sans', sans-serif;
 
 }
 
@@ -228,15 +229,18 @@ main {
 
 /* Services Section */
 .services {
-    padding: 40px 20px;
+    padding: 10px 0px;
     text-align: center;
     min-height: 90vh;
     background-color: #f8f9fa;
+    scroll-margin-top: 100px; /* Adjust based on your fixed header height */
 }
 
 .services h2 {
-    margin-top: 80px; /* Moves the heading up */
-	margin-bottom: 30px; /* Moves the heading up */
+    margin-top: 20px; /* Moves the heading up */
+	margin-bottom: 20px; /* Moves the heading up */
+    font-family: 'Prompt';
+    font-size: 32px;
 }
 
 .services-container {
@@ -253,6 +257,7 @@ main {
     width: 320px;
     box-shadow: 0 4px 8px rgba(255, 10, 100, 0.2);
     transition: transform 0.3s ease-in-out;
+    height: 395px; /* Set a fixed height for the card */
 }
 
 .service-card:hover {
@@ -266,22 +271,24 @@ main {
 }
 
 .service-content {
-    padding: 20px;
+    padding: 10px;
     text-align: left;
+    margin-bottom: 0px;
 }
 
 .service-content h3 {
     font-size: 20px;
     color: #340145;
-    margin-bottom: 12px;
-	font-family: "Avenir Next Pro", Helvetica, Arial, sans-serif;
+    margin-bottom: 10px;
+	font-family: 'Prompt', Helvetica, Arial, sans-serif;
+    text-align: center;
 }
 
 .service-content p {
     font-size: 14px;
     color: #5C686C;
-    margin-bottom: 10px;
-	font-family: "Avenir Next Pro", Helvetica, Arial, sans-serif;
+    margin-bottom: 14px;
+	font-family: 'DM Sans', Helvetica, Arial, sans-serif;
 }
 
 .learn-more {
@@ -297,7 +304,7 @@ main {
 
 .learn-more-container {
     background-image: linear-gradient(45deg, #481F59, #00519F); /* Gradient from blue to light blue */
-    padding: 10px; /* Adjust padding as needed */
+    padding: 8px; /* Adjust padding as needed */
     width: 100%; /* Make the container take the full width of the card */
     text-align: center; /* Center the "Learn More" text */
     margin-top: 0px; /* Optional: space between content and Learn More button */
@@ -344,10 +351,11 @@ main {
 
 /* Contact Section */
 .contact {
-    padding: 40px 20px;
+    padding: 10px 20px;
     text-align: center;
     min-height: 90vh;
     background-color: #f8f9fa;
+    scroll-margin-top: 100px; /* Adjust based on your fixed header height */
 }
 
 .contact h2 {
@@ -360,7 +368,7 @@ main {
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
-	margin-top: 80px;
+	margin-top: 40px;
 }
 
 .contact-layout {
@@ -383,14 +391,14 @@ main {
     color: #340145;
     margin-bottom: 30px;
     text-align: center; /* Center the heading */
-    font-family: "Avenir Next Pro", Helvetica, Arial, sans-serif;
+    font-family: 'Prompt', Helvetica, Arial, sans-serif;
 }
 
 .contact-content p {
     font-size: 14px;
     color: #5C686C;
     margin-bottom: 80px;
-	font-family: "Avenir Next Pro", Helvetica, Arial, sans-serif;
+	font-family: 'DM Sans', sans-serif;
 }
 
 .contact-form {
@@ -401,7 +409,7 @@ main {
 
 .contact-form-row {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
     flex-wrap: wrap; /* Prevent wrapping unless screen is too small */
 }
@@ -421,7 +429,7 @@ main {
     font-weight: 600;
     color: #340145;
 	text-align: left; /* Force left alignment */
-    font-family: "Avenir Next Pro", Helvetica, Arial, sans-serif;
+    font-family: "DM Sans", Helvetica, Arial, sans-serif;
 }
 
 .contact-form-group input {
@@ -429,7 +437,7 @@ main {
     border: 1px solid #ccc;
     border-radius: 2px;
     font-size: 15px;
-    font-family: "Avenir Next Pro", Helvetica, Arial, sans-serif;
+    font-family: "DM Sans", Helvetica, Arial, sans-serif;
     line-height: 1.0;
     transition: border-color 0.3s, box-shadow 0.3s;
     outline: none;
@@ -469,7 +477,7 @@ main {
     border: none;
     border-radius: 20px;
     font-size: 12px;
-    font-family: "Avenir Next Pro", Helvetica, Arial, sans-serif;
+    font-family: 'DM Sans',sans-serif;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -477,6 +485,7 @@ main {
 .submit-button:hover {
     background-color: #4b0564;
 }
+
 
 /* About Section */
 .about {
@@ -551,6 +560,310 @@ main {
 	font-family: 'Inter', sans-serif !important;
 }
 
+/* About Section */
+.location {
+    padding: 40px 20px;
+    text-align: center;
+    min-height: 90vh;
+    background-color: #636372;
+	margin-top: 0px;
+}
+
+.location-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.location-card {
+    display: flex; /* ➜ Enables horizontal layout */
+    flex-wrap: wrap; /* ➜ Makes it responsive */
+    gap: 20px;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(255, 10, 100, 0.2);
+    transition: transform 0.3s ease-in-out;
+    padding: 10px 40px; /* Optional: add spacing inside the card */
+}
+
+.location-card:hover {
+    transform: translateY(-2px);
+	background: #F0F0F0;
+}
+
+.location-content {
+    flex: 1;
+    min-width: 280px;
+	margin: 0;  /* Removes default margin */
+    padding: 0px; /* Removes default padding */
+	font-family: 'Helvetica', sans-serif !important;
+}
+
+.location-image-content {
+    flex: none;
+}
+
+.location-image {
+    max-width: 150px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.location-content p {
+    font-family: 'Inter', sans-serif !important;
+	color: #022914;
+}
+
+.location h2 {
+    padding: 10px 10px; /* Optional: add spacing */
+	margin-bottom: 10px;
+	font-family: 'Inter', sans-serif !important;
+	color: #E9F9F9;
+}
+
+.location-content h3 {
+    text-align: left;
+	margin: 0;  /* Removes default margin */
+    padding: 0; /* Removes default padding */
+	padding: 20px 0px; /* Optional: add spacing */
+	margin-top: -20px; /* Adjust this value to move it up */
+	color: #E9F9F9;
+	font-family: 'Inter', sans-serif !important;
+}
+
+
+/* Services Section */
+.applications {
+    padding: 40px 20px;
+    text-align: center;
+    min-height: 90vh;
+    background-color: #f8f9fa;
+}
+
+.applications h2 {
+    margin-top: 40px; /* Moves the heading up */
+	margin-bottom: 50px; /* Moves the heading up */
+    font-size: 32px;
+    font-family: 'Prompt', Josefin Sans;
+}
+
+.applications-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.applications-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 320px;
+    box-shadow: 0 4px 8px rgba(255, 10, 100, 0.2);
+    transition: transform 0.3s ease-in-out;
+    height: 395px; /* Set a fixed height for the card */
+    
+}
+
+.applications-card:hover {
+    transform: translateY(-5px);
+}
+
+.applications-image {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+}
+
+.applications-content {
+    padding: 10px;
+    text-align: left;
+}
+
+.applications-content h3 {
+    font-size: 22px;
+    color: #340145;
+    margin-top: 0px;
+    margin-bottom: 8px;
+	font-family: 'Prompt', Josefin Sans, sans-serif;
+    text-align: center;
+}
+
+.applications-content p {
+    font-size: 14px;
+    color: #5C686C;
+    margin-bottom: 0px;
+	font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+    height: 165px;
+}
+
+.applications-more {
+    display: inline-block;
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.applications-more:hover {
+    text-decoration: underline;
+}
+
+.applications-more-container {
+    background-image: linear-gradient(45deg, #481F59, #00519F); /* Gradient from blue to light blue */
+    padding: 8px; /* Adjust padding as needed */
+    width: 100%; /* Make the container take the full width of the card */
+    text-align: center; /* Center the "Learn More" text */
+    margin-top: 0px; /* Optional: space between content and Learn More button */
+    border-top: 1px solid #ddd; /* Optional: adds a border at the top of the Learn More section */
+    margin-bottom: 0px; /* Optional: space between content and Learn More button */
+}
+
+.applications-more {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make text bold */
+    display: inline-flex; /* Align items within the link */
+    justify-content: space-between; /* Space between text and arrow */
+    align-items: center; /* Vertically center the text and arrow */
+    width: 100%; /* Ensures the link takes the full width */
+}
+
+.applications-more:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+.applications-more-container:hover .arrow {
+    opacity: 1; /* Hide the arrow on hover */
+}
+
+.applications-more-container:hover {
+    background-image: linear-gradient(25deg, #312258, #312258); /* Gradient from blue to light blue */
+}
+
+
+appflashmain {
+    margin-top: 60px;  /* Adjust to a smaller value */
+    padding: 0;
+}
+
+/* Vision and Mission Section */
+.appflash-domains {
+    background: #000;
+    color: #bfbfbf;
+    padding: 0px 0px;  /* Reduced padding */
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Avenir Next Pro", Helvetica, Arial, sans-serif;
+    margin-top: 0px auto;  /* Reduce margin-top */
+}
+
+.appflash-mission-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 0px;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;          /* Ensure no internal spacing */
+}
+
+.appflash-left-column {
+    flex: 0 0 35%; /* Takes up 30% of the container */
+    background: linear-gradient(to right, #241e41, #0f0e23);
+    margin-left: 0px;
+    padding: 50px;
+    margin-top: 50px;
+}
+
+.appflash-right-column {
+    flex: 0 0 75%;
+    background: linear-gradient(to right, #3a2f6f, #151338);
+    margin-left: 0px;
+    padding: 50px;
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;           /* Horizontally center everything */
+    justify-content: flex-start;   /* Align content at the top */
+    text-align: center;            /* Center text */
+}
+
+.appflash-left-column h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    color: #F5A000; /* Light orange */
+    font-family: 'Prompt', Josefin Sans, sans-serif;
+}
+
+.appflash-right-column h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    color: #F5A000; /* Light orange */
+    text-align: center;
+    padding-right: 100px;
+    font-family: 'Prompt', Josefin Sans, sans-serif;
+}
+
+.appflash-left-column p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 200px;
+    margin-right: 20px;
+    text-align: left;
+    color: #adcbd0;
+    font-family: 'Red Hat Display', sans-serif;
+    padding-right: 0px;
+
+}
+
+.appflash-right-column p{
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 100px;
+    margin-right: 20px;
+    text-align: center;
+    color: #adcbd0;
+    font-family: 'Red Hat Display', sans-serif;
+    padding-right: 100px;
+
+}
+
+.appflash-button {
+    padding: 12px 20px;
+    background-color: transparent; /* Make the background transparent */
+    color: #fff;                   /* White text */
+    border: 1px solid #fff;        /* White border */
+    border-radius: 25px;
+    font-size: 12px;
+    text-decoration: none;         /* Remove the underline */
+    font-family: "Red Hat Display", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    display: inline-flex;          /* Allow icon and text to be inline */
+    align-items: center;           /* Vertically align text and icon */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: -80px;
+}
+
+.appflash-button .material-icons {
+    padding-left: 8px;
+    padding-right: 0px;
+    margin-left: 12px;             /* Space between text and icon */
+    font-size: 18px;              /* Adjust icon size */
+}
+
+.appflash-button:hover {
+    background-color: #2b1f3d;       /* White background on hover */
+    color: #5b6486;               /* Change text color on hover to the original button color */
+    transform: scale(1.05);        /* Slightly scale up on hover */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
@@ -582,6 +895,10 @@ main {
     }
 
     main {
+        margin-top: 80px;
+    }
+
+    appflashmain {
         margin-top: 80px;
     }
 
