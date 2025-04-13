@@ -162,14 +162,13 @@ main {
 /* Background Image */
 .core-strengths-image {
     position: absolute;
-    top: 10%;
-    left: 25%;
-	width: 75%;
-    height: 80%;
+    top: 5%;
+    left: 0%;
+	width: 100%;
     object-fit: cover; /* Ensures it fills the container */
-    border-radius: 5px; /* Rounded edges */
+    border-radius: 0px; /* Rounded edges */
     z-index: 0; /* Keeps image in the background */
-    opacity: 0.9; /* Adjust transparency */
+    opacity: 1.0; /* Adjust transparency */
 }
 
 /* Strengths List */
@@ -307,8 +306,8 @@ main {
     padding: 8px; /* Adjust padding as needed */
     width: 100%; /* Make the container take the full width of the card */
     text-align: center; /* Center the "Learn More" text */
-    margin-top: 0px; /* Optional: space between content and Learn More button */
-    border-top: 1px solid #ddd; /* Optional: adds a border at the top of the Learn More section */
+    margin-top: 2px; /* Optional: space between content and Learn More button */
+    border-top: 0px solid #ddd; /* Optional: adds a border at the top of the Learn More section */
 }
 
 .learn-more {
