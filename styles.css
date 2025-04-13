@@ -783,7 +783,6 @@ appflashmain {
 }
 
 .appflash-right-column {
-    flex: 0 0 75%;
     background: linear-gradient(to right, #3a2f6f, #151338);
     margin-left: 0px;
     padding: 50px;
@@ -808,7 +807,7 @@ appflashmain {
     margin-top: 100px;
     color: #F5A000; /* Light orange */
     text-align: center;
-    padding-right: 100px;
+    padding-right: 0px;
     font-family: 'Prompt', Josefin Sans, sans-serif;
 }
 
@@ -816,7 +815,7 @@ appflashmain {
     font-size: 16px;
     line-height: 1.8;
     margin-bottom: 190px;
-    margin-right: 20px;
+    margin-right: 0px;
     text-align: left;
     color: #adcbd0;
     font-family: 'Red Hat Display', sans-serif;
@@ -828,11 +827,11 @@ appflashmain {
     font-size: 16px;
     line-height: 1.8;
     margin-bottom: 100px;
-    margin-right: 20px;
+    margin-right: 0px;
     text-align: center;
     color: #adcbd0;
     font-family: 'Red Hat Display', sans-serif;
-    padding-right: 80px;
+    padding-right: 0px;
 
 }
 
@@ -849,7 +848,7 @@ appflashmain {
     display: inline-flex;          /* Allow icon and text to be inline */
     align-items: center;           /* Vertically align text and icon */
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-left: -100px;
+    margin-left: 0px;
 }
 
 .appflash-button .material-icons {
