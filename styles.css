@@ -494,7 +494,7 @@ main {
     min-height: 90vh;
     background-color: #f8f9fa;
 	margin-top: 80px;
-	scroll-margin-top: 100px; /* Adjust based on your fixed header height */
+    scroll-margin-top: 100px; /* Adjust based on your fixed header height */
 }
 
 .about-container {
@@ -779,7 +779,7 @@ appflashmain {
     background: linear-gradient(to right, #241e41, #0f0e23);
     margin-left: 0px;
     padding: 50px;
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 .appflash-right-column {
@@ -787,7 +787,7 @@ appflashmain {
     background: linear-gradient(to right, #3a2f6f, #151338);
     margin-left: 0px;
     padding: 50px;
-    margin-top: 50px;
+    margin-top: 0px;
     flex-direction: column;
     align-items: center;           /* Horizontally center everything */
     justify-content: flex-start;   /* Align content at the top */
@@ -797,7 +797,7 @@ appflashmain {
 .appflash-left-column h2 {
     font-size: 28px;
     margin-bottom: 20px;
-    margin-top: 50px;
+    margin-top: 100px;
     color: #F5A000; /* Light orange */
     font-family: 'Prompt', Josefin Sans, sans-serif;
 }
@@ -805,7 +805,7 @@ appflashmain {
 .appflash-right-column h2 {
     font-size: 28px;
     margin-bottom: 20px;
-    margin-top: 50px;
+    margin-top: 100px;
     color: #F5A000; /* Light orange */
     text-align: center;
     padding-right: 100px;
@@ -815,7 +815,7 @@ appflashmain {
 .appflash-left-column p {
     font-size: 16px;
     line-height: 1.8;
-    margin-bottom: 200px;
+    margin-bottom: 190px;
     margin-right: 20px;
     text-align: left;
     color: #adcbd0;
@@ -832,7 +832,7 @@ appflashmain {
     text-align: center;
     color: #adcbd0;
     font-family: 'Red Hat Display', sans-serif;
-    padding-right: 100px;
+    padding-right: 80px;
 
 }
 
@@ -849,7 +849,7 @@ appflashmain {
     display: inline-flex;          /* Allow icon and text to be inline */
     align-items: center;           /* Vertically align text and icon */
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-left: -80px;
+    margin-left: -100px;
 }
 
 .appflash-button .material-icons {
@@ -906,5 +906,10 @@ appflashmain {
     .vision-mission-content {
         flex-direction: column;
         gap: 20px;
+    }
+
+    .appflash-mission-content {
+        flex-direction: column;
+        gap: -100rem; /* or 0 if you want no gap at all */
     }
 }
