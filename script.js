@@ -20,12 +20,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentIndex = 0;
 
-  // Function to update slider position
-  function updateSlider() {
+  // Update slider position
+  function updateSlider(jumpInstant = false) {
+    if (jumpInstant) {
+      slider.style.transition = "none";
+    } else {
+      slider.style.transition = "transform 0.5s ease";
+    }
+
     slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    // Update dots
     document.querySelectorAll(".appflash-dot").forEach((dot, index) => {
       dot.classList.toggle("active", index === currentIndex);
     });
+
+    // Restore transition if jumpInstant was true
+    if (jumpInstant) {
+      void slider.offsetWidth; // Force reflow
+      slider.style.transition = "transform 0.5s ease";
+    }
   }
 
   // Create navigation dots
@@ -35,35 +49,32 @@ document.addEventListener("DOMContentLoaded", () => {
     if (index === 0) dot.classList.add("active");
 
     dot.addEventListener("click", () => {
-      // Jump instantly without transition
-      slider.style.transition = "none";
+      const jumpInstant = Math.abs(index - currentIndex) > 1 || 
+                         (index === 0 && currentIndex === slides.length - 1) || 
+                         (index === slides.length - 1 && currentIndex === 0);
       currentIndex = index;
-      updateSlider();
-
-      // Force reflow and restore transition for next move
-      void slider.offsetWidth;
-      slider.style.transition = "transform 0.5s ease";
+      updateSlider(jumpInstant);
     });
 
     dotsContainer.appendChild(dot);
   });
 
-  // Arrow click with animation
+  // Left arrow click
   leftArrow.addEventListener("click", () => {
-    slider.style.transition = "transform 0.5s ease";
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlider();
+    const isJump = currentIndex === 0;
+    currentIndex = isJump ? slides.length - 1 : currentIndex - 1;
+    updateSlider(isJump);
   });
 
+  // Right arrow click
   rightArrow.addEventListener("click", () => {
-    slider.style.transition = "transform 0.5s ease";
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlider();
+    const isJump = currentIndex === slides.length - 1;
+    currentIndex = isJump ? 0 : currentIndex + 1;
+    updateSlider(isJump);
   });
 
-  // Initial update
-  slider.style.transition = "transform 0.5s ease";
-  updateSlider();
+  // Initial state
+  updateSlider(false);
 });
 
 
