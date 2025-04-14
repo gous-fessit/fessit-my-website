@@ -638,7 +638,7 @@ main {
 
 /* Services Section */
 .applications {
-    padding: 40px 20px;
+    padding: 20px 10px;
     text-align: center;
     min-height: 90vh;
     background-color: #f8f9fa;
@@ -646,8 +646,8 @@ main {
 }
 
 .applications h2 {
-    margin-top: 40px; /* Moves the heading up */
-	margin-bottom: 50px; /* Moves the heading up */
+    margin-top: 12px; /* Moves the heading up */
+	margin-bottom: 16px; /* Moves the heading up */
     font-size: 32px;
     font-family: 'Prompt', Josefin Sans;
 }
