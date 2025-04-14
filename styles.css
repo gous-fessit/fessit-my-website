@@ -642,6 +642,7 @@ main {
     text-align: center;
     min-height: 90vh;
     background-color: #f8f9fa;
+	scroll-margin-top: 100px;
 }
 
 .applications h2 {
