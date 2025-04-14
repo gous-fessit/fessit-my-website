@@ -303,11 +303,12 @@ main {
 
 .learn-more-container {
     background-image: linear-gradient(45deg, #481F59, #00519F); /* Gradient from blue to light blue */
-    padding: 8px; /* Adjust padding as needed */
+    padding: 12px; /* Adjust padding as needed */
     width: 100%; /* Make the container take the full width of the card */
     text-align: center; /* Center the "Learn More" text */
-    margin-top: 2px; /* Optional: space between content and Learn More button */
+    margin-top: auto; /* Optional: space between content and Learn More button */
     border-top: 0px solid #ddd; /* Optional: adds a border at the top of the Learn More section */
+	
 }
 
 .learn-more {
@@ -774,6 +775,39 @@ appflashmain {
     padding: 0;          /* Ensure no internal spacing */
 }
 
+.appflash-right-slider-wrapper {
+  align-items: center;
+  overflow: hidden;
+  max-width: 100%;
+  position: relative; /* Ensure the parent has relative positioning */
+}
+
+.appflash-arrow {
+  background: linear-gradient(to right, #3a2f6f, #151338);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2;
+  color: #000;
+  padding: 0;
+}
+
+.appflash-slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(to right, #3a2f6f, #151338);
+}
+
+.appflash-slider {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #3a2f6f, #151338);
+}
+
 .appflash-left-column {
     flex: 0 0 35%; /* Takes up 30% of the container */
     background: linear-gradient(to right, #241e41, #0f0e23);
@@ -783,14 +817,17 @@ appflashmain {
 }
 
 .appflash-right-column {
-    background: linear-gradient(to right, #3a2f6f, #151338);
-    margin-left: 0px;
-    padding: 50px;
-    margin-top: 0px;
-    flex-direction: column;
-    align-items: center;           /* Horizontally center everything */
-    justify-content: flex-start;   /* Align content at the top */
-    text-align: center;            /* Center text */
+  min-width: 100%; /* Each slide takes 100% width of the container */
+  flex: 0 0 100%;  /* Ensure each slide takes up 100% of the available space */
+  margin-left: 0px;
+  padding: 50px;
+  margin-top: 0px;
+  text-align: center;
+  background: linear-gradient(to right, #3a2f6f, #151338);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .appflash-left-column h2 {
@@ -826,7 +863,7 @@ appflashmain {
 .appflash-right-column p{
     font-size: 16px;
     line-height: 1.8;
-    margin-bottom: 100px;
+    margin-bottom: 0px;
     margin-right: 0px;
     text-align: center;
     color: #adcbd0;
@@ -849,6 +886,8 @@ appflashmain {
     align-items: center;           /* Vertically align text and icon */
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-left: 0px;
+	margin-top: auto; /* Push button to the bottom */
+	margin-bottom: 50px; /* Adjust value as needed */
 }
 
 .appflash-button .material-icons {
@@ -862,6 +901,52 @@ appflashmain {
     background-color: #2b1f3d;       /* White background on hover */
     color: #5b6486;               /* Change text color on hover to the original button color */
     transform: scale(1.05);        /* Slightly scale up on hover */
+}
+
+/* Optional: gradient edge indicators using ::before and ::after */
+.appflash-right-slider-wrapper::before,
+.appflash-right-slider-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.appflash-right-slider-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #3a2f6f, #151338);
+}
+
+.appflash-right-slider-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #3a2f6f, #151338);
+}
+
+.appflash-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20rem;
+  padding: 0px;
+  position: absolute; /* Position the arrows absolutely inside the wrapper */
+  bottom: 20px; /* Position arrows at the bottom */
+  left: 0;
+  right: 0;
+  background-color: transparent;
+}
+
+.appflash-nav-arrow {
+  font-size: 1.8rem !important; /* Increase this value to make the arrows bigger */
+  display: inline-block; /* or block */
+  cursor: pointer;
+  color: #E4E0E0;
+  transition: color 0.3s;
+}
+
+.appflash-nav-arrow:hover {
+  color: #007BF9;
 }
 
 /* Responsive Design */
