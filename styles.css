@@ -1011,9 +1011,13 @@ appflashmain {
   
 .tile,
 .tile-frontend,
-.tile-backend 
-.tile-cloud 
-.tile-integration {    
+.tile-backend, 
+.tile-cloud, 
+.tile-integration,
+.tile-firmware,
+.tile-hwintegration,
+.tile-rtos,
+.tile-protocol {    
     font-family: 'Red Hat Display', sans-serif;
     flex: 1 0 48%;
     min-width: 200px;
@@ -1028,7 +1032,7 @@ appflashmain {
     text-align: center;
     box-sizing: border-box;
     border: 1px solid #3a2f6f;
-    padding: 20px;
+    padding: 12px;
     align-self: stretch;
     position: relative; /* 🔑 Allows absolute positioning of ::before */
     overflow: hidden;   /* 🔑 Prevent ::before from overflowing */
@@ -1036,24 +1040,32 @@ appflashmain {
 
 .tile h3,
 .tile-frontend h3,
-.tile-backend h3 
-.tile-cloud h3 
-.tile-integration h3 {
+.tile-backend h3, 
+.tile-cloud h3,
+.tile-integration h3,
+.tile-firmware h3,
+.tile-hwintegration h3,
+.tile-rtos h3,
+.tile-protocol h3 {
     font-family:'Red Hat Display', sans-serif;
     font-size: 22px;
     margin: 0 0 8px;
     color: #F5A000;
-    z-index: 5;
+    z-index: 3;
 }
 
 .tile p,
 .tile-frontend p,
-.tile-backend p 
-.tile-cloud p 
-.tile-integration p {
+.tile-backend p, 
+.tile-cloud p, 
+.tile-integration p,
+.tile-firmware p,
+.tile-hwintegration p,
+.tile-rtos p,
+.tile-protocol p {
     font-family:'Red Hat Display', sans-serif;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.5;
     color: #f5f6fd;
     z-index: 2;
     position: relative;
@@ -1151,6 +1163,98 @@ appflashmain {
     color: #f1edde;
   }
 
+    /* === FIRMWARE TILE === */
+    .tile-firmware {
+        background: url('firmware_for_tile.jpg') no-repeat center center;
+        background-size: cover;
+    }
+  
+    .tile-firmware::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        transition: background 0.3s ease;
+        z-index: 2;
+    }
+  
+    .tile-firmware:hover::before {
+        background: rgba(35, 26, 80, 0.9); /* Darker overlay on hover */
+    }
+  
+    .tile-firmware:hover p {
+        color: #f1edde;
+    }
+    
+    /* === HARDWARE INTEGRATION TILE === */
+    .tile-hwintegration {
+        background: url('hardware_integration_for_tile.jpg') no-repeat center center;
+        background-size: cover;
+    }
+  
+    .tile-hwintegration::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        transition: background 0.3s ease;
+        z-index: 2;
+    }
+  
+    .tile-hwintegration:hover::before {
+        background: rgba(35, 26, 80, 0.9); /* Darker overlay on hover */
+    }
+  
+    .tile-hwintegration:hover p {
+        color: #f1edde;
+    }
+
+    /* === RTOS INTEGRATION TILE === */
+    .tile-rtos {
+        background: url('rtos_image_for_tile.jpg') no-repeat center center;
+        background-size: cover;
+    }
+  
+    .tile-rtos::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        transition: background 0.3s ease;
+        z-index: 2;
+    }
+  
+    .tile-rtos:hover::before {
+        background: rgba(35, 26, 80, 0.9); /* Darker overlay on hover */
+    }
+  
+    .tile-rtos:hover p {
+        color: #f1edde;
+    }
+
+    /* === PROTOCOL TILE === */
+    .tile-protocol {
+        background: url('stack_protocol_image_for_tile.jpg') no-repeat center center;
+        background-size: cover;
+    }
+  
+    .tile-protocol::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        transition: background 0.3s ease;
+        z-index: 2;
+    }
+  
+    .tile-protocol:hover::before {
+        background: rgba(35, 26, 80, 0.9); /* Darker overlay on hover */
+    }
+  
+    .tile-protocol:hover p {
+        color: #f1edde;
+    }
+
     .services-info {
         font-family: 'Red Hat Display', sans-serif;
         background: #dfd6d6;
@@ -1161,6 +1265,7 @@ appflashmain {
         flex-direction: column;
         justify-content: center;
         margin-top: 0px auto;  /* Reduce margin-top */
+        scroll-margin-top: 100px;
     }
     
     .services-info-content {
@@ -1276,6 +1381,48 @@ appflashmain {
     
     .services-tech-list li {
         margin-bottom: 10px;
+    }
+
+    .firmware-flash-button {
+        padding: 4px 10px;
+        background-color: transparent; /* Make the background transparent */
+        color: #8a8282;                   /* White text */
+        border: 0.5px solid #6d6b6b;        /* White border */
+        border-radius: 25px;
+        font-size: 12px;
+        text-decoration: none;         /* Remove the underline */
+        font-family: "Red Hat Display", Helvetica, Arial, sans-serif;
+        cursor: pointer;
+        display: inline-flex;          /* Allow icon and text to be inline */
+        align-items: center;           /* Vertically align text and icon */
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        margin-left: 0px;
+        margin: auto; /* Push button to the bottom */
+        z-index: 2;
+    }
+    
+    .firmware-flash-button .material-icons {
+        padding-left: 8px;
+        padding-right: 0px;
+        margin-left: 0px;             /* Space between text and icon */
+        font-size: 12px;              /* Adjust icon size */
+    }
+    
+    .firmware-flash-button:hover {
+        background-color: #2b1f3d;       /* White background on hover */
+        color: #5b6486;               /* Change text color on hover to the original button color */
+        transform: scale(1.05);        /* Slightly scale up on hover */
+    }
+
+    #front-dev,
+    #backend-dev,
+    #cloud-dev,
+    #sys-int,
+    #firmware-dev,
+    #hw-int,
+    #rtos,
+    #stack-proto {
+    scroll-margin-top: 80px; /* Adjust based on your fixed header height */
     }
 
 /* Responsive Design */
