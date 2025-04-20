@@ -1017,7 +1017,11 @@ appflashmain {
 .tile-firmware,
 .tile-hwintegration,
 .tile-rtos,
-.tile-protocol {    
+.tile-protocol,
+.tile-hwdesign,
+.tile-pcbdesign,
+.tile-hwtest,
+.tile-prodcert {    
     font-family: 'Red Hat Display', sans-serif;
     flex: 1 0 48%;
     min-width: 200px;
@@ -1046,7 +1050,11 @@ appflashmain {
 .tile-firmware h3,
 .tile-hwintegration h3,
 .tile-rtos h3,
-.tile-protocol h3 {
+.tile-protocol h3,
+.tile-hwdesign h3,
+.tile-pcbdesign h3,
+.tile-hwtest h3,
+.tile-prodcert h3 {
     font-family:'Red Hat Display', sans-serif;
     font-size: 22px;
     margin: 0 0 8px;
@@ -1062,7 +1070,11 @@ appflashmain {
 .tile-firmware p,
 .tile-hwintegration p,
 .tile-rtos p,
-.tile-protocol p {
+.tile-protocol p,
+.tile-hwdesign p,
+.tile-pcbdesign p,
+.tile-hwtest p,
+.tile-prodcert p {
     font-family:'Red Hat Display', sans-serif;
     font-size: 14px;
     line-height: 1.5;
@@ -1255,6 +1267,122 @@ appflashmain {
         color: #f1edde;
     }
 
+    /* === HW DESIGN & INTEGRATION TILE === */
+    .tile-hwdesign {
+        background: url('hw-design_eng.png') no-repeat center center;
+        background-size: cover;
+    }
+  
+    .tile-hwdesign::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        transition: background 0.3s ease;
+        z-index: 2;
+    }
+  
+    .tile-hwdesign:hover::before {
+        background: rgba(35, 26, 80, 0.9); /* Darker overlay on hover */
+    }
+  
+    .tile-hwdesign:hover p {
+        color: #f1edde;
+    }
+
+    /* === HW DESIGN & INTEGRATION TILE === */
+    .tile-pcbdesign {
+        background: url('PCB-Design.png') no-repeat center center;
+        background-size: cover;
+    }
+  
+    .tile-pcbdesign::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        transition: background 0.3s ease;
+        z-index: 2;
+    }
+  
+    .tile-pcbdesign:hover::before {
+        background: rgba(35, 26, 80, 0.9); /* Darker overlay on hover */
+    }
+  
+    .tile-pcbdesign:hover p {
+        color: #f1edde;
+    }
+
+    /* === HW DESIGN & INTEGRATION TILE === */
+    .tile-pcbdesign {
+        background: url('PCB-Design.png') no-repeat center center;
+        background-size: cover;
+    }
+  
+    .tile-pcbdesign::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        transition: background 0.3s ease;
+        z-index: 2;
+    }
+  
+    .tile-pcbdesign:hover::before {
+        background: rgba(35, 26, 80, 0.9); /* Darker overlay on hover */
+    }
+  
+    .tile-pcbdesign:hover p {
+        color: #f1edde;
+    }
+
+    /* === HW DESIGN & INTEGRATION TILE === */
+    .tile-hwtest {
+        background: url('PCB-Design-Tile.png') no-repeat center center;
+        background-size: cover;
+    }
+  
+    .tile-hwtest::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        transition: background 0.3s ease;
+        z-index: 2;
+    }
+  
+    .tile-hwtest:hover::before {
+        background: rgba(35, 26, 80, 0.9); /* Darker overlay on hover */
+    }
+  
+    .tile-hwtest:hover p {
+        color: #f1edde;
+    }
+
+    /* === PRODUCT CERTIFICATION TILE === */
+    .tile-prodcert {
+        background: url('Prod-Certification-Tile.png') no-repeat center center;
+        background-size: cover;
+    }
+  
+    .tile-prodcert::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        transition: background 0.3s ease;
+        z-index: 2;
+    }
+  
+    .tile-prodcert:hover::before {
+        background: rgba(35, 26, 80, 0.9); /* Darker overlay on hover */
+    }
+  
+    .tile-prodcert:hover p {
+        color: #f1edde;
+    }
+
+
     .services-info {
         font-family: 'Red Hat Display', sans-serif;
         background: #dfd6d6;
@@ -1421,7 +1549,11 @@ appflashmain {
     #firmware-dev,
     #hw-int,
     #rtos,
-    #stack-proto {
+    #stack-proto,
+    #hw-designengr,
+    #pcb-design,
+    #hw-testing,
+    #product-cert {
     scroll-margin-top: 80px; /* Adjust based on your fixed header height */
     }
 
