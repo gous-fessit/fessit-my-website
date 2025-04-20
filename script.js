@@ -10,7 +10,18 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
+// Close menu if clicked outside of it
+document.addEventListener('click', (event) => {
+    const menu = document.querySelector('.nav-links');
+    const menuToggle = document.querySelector('.menu-toggle');
+    
+    // If the click is outside of the menu or the menu toggle button
+    if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+        menu.classList.remove('active');
+    }
+});
 
+// Slider functionality (unchanged)
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".appflash-slider");
   const slides = document.querySelectorAll(".appflash-right-column");
@@ -76,5 +87,3 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial state
   updateSlider(false);
 });
-
-
