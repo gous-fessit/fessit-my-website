@@ -363,11 +363,11 @@ main {
 
 /* Contact Section */
 .contact {
-    padding: 10px 20px;
+    padding: 2px 10px;
     text-align: center;
     min-height: 90vh;
     background-color: #f8f9fa;
-    scroll-margin-top: 100px; /* Adjust based on your fixed header height */
+    scroll-margin-top: 80px; /* Adjust based on your fixed header height */
 }
 
 .contact h2 {
@@ -375,10 +375,17 @@ main {
 	margin-bottom: 30px; /* Moves the heading up */
 }
 
+.contact .FessiTName {
+    margin-top: 40px; /* Moves the heading up */
+	margin-bottom: -30px; /* Moves the heading up */
+	color: #518D1E;
+	font-size: 32px;
+}
+
 .contact-container {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 10px;
     flex-wrap: wrap;
 	margin-top: 40px;
 }
@@ -395,7 +402,7 @@ main {
 .contact-content {
     padding: 20px;
     text-align: justify;
-	margin-bottom: 80px;
+	margin-bottom: 40px;
 }
 
 .contact-content h3 {
@@ -561,6 +568,8 @@ main {
 .about h2 {
     padding: 10px 10px; /* Optional: add spacing */
 	margin-bottom: 10px;
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 32px;
 }
 
 .about-content h3 {
@@ -584,36 +593,44 @@ main {
 
 .location-container {
     display: flex;
-    justify-content: center;
-    gap: 30px;
     flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2px; /* Optional: can be removed if you're using space-between */
 }
 
+
 .location-card {
-    display: flex; /* ➜ Enables horizontal layout */
-    flex-wrap: wrap; /* ➜ Makes it responsive */
+    flex: 0 1 calc(50% - 15px); /* Two cards per row with spacing */
+    display: flex;
+    flex-direction: column;
     gap: 20px;
-    align-items: center;
-    background: #fff;
-    border-radius: 8px;
+    align-items: flex-start;
+    background: linear-gradient(to bottom, #636372 30%, #5a5a67 80%);
+    border-radius: 0px;
     overflow: hidden;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(255, 10, 100, 0.2);
-    transition: transform 0.3s ease-in-out;
-    padding: 10px 40px; /* Optional: add spacing inside the card */
+    padding: 10px 30px;
+    max-width: 100%;
+}
+
+.location-card h3 {
+    text-align: center;
+}
+
+.location-card p:not(.contact-info) {
+    text-align: center;
 }
 
 .location-card:hover {
-    transform: translateY(-2px);
-	background: #F0F0F0;
+    transform: translateY(-0px);
 }
 
 .location-content {
-    flex: 1;
-    min-width: 280px;
-	margin: 0;  /* Removes default margin */
-    padding: 0px; /* Removes default padding */
-	font-family: 'Red Hat Display', sans-serif;
+    display: flex;
+    flex-direction: column;  /* Stack header, address, and contact info vertically */
+    align-items: flex-start; /* Align everything to the left */
+    gap: 10px;  /* Space between each section */
+    width: 100%;
 }
 
 .location-image-content {
@@ -629,23 +646,24 @@ main {
 .location-content p {
     font-family: 'Red Hat Display', sans-serif;
 	color: #022914;
+    align-items: center;
 }
 
 .location h2 {
-    padding: 10px 10px; /* Optional: add spacing */
-	margin-bottom: 10px;
+    margin-bottom: 30px;
 	font-family: 'Red Hat Display', sans-serif;
-	color: #E9F9F9;
+    font-size: 32px;
+	color: #85c74e;
 }
 
 .location-content h3 {
-    text-align: left;
+    text-align: center;
 	margin: 0;  /* Removes default margin */
     padding: 0; /* Removes default padding */
-	padding: 20px 0px; /* Optional: add spacing */
-	margin-top: -20px; /* Adjust this value to move it up */
-	color: #E9F9F9;
+	padding: 20px 10px; /* Optional: add spacing */
+	color: #85c74e;
 	font-family: 'Red Hat Display', sans-serif;
+    width: 100%;
 }
 
 
@@ -1557,6 +1575,132 @@ appflashmain {
     scroll-margin-top: 80px; /* Adjust based on your fixed header height */
     }
 
+    .location-item {
+        padding: 10px 20px;
+        color: #8a8282;                   /* White text */
+        border: 0.1px solid #6d6b6b;        /* White border */
+        border-radius: 2px;
+        font-size: 12px;
+        text-decoration: none;         /* Remove the underline */
+        font-family: "Red Hat Display", Helvetica, Arial, sans-serif;
+        display: flex;          /* Allow icon and text to be inline */
+        align-items: center;           /* Vertically align text and icon */
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        z-index: 2;
+    }
+
+    .info-container {
+        display: flex;  /* Align address and contact info horizontally */
+        gap: 10px;  /* Space between address and contact info */
+        flex-direction: row;  /* Stack address lines vertically */
+        width: 100%;
+        font-family: "Red Hat Display", Helvetica, Arial, sans-serif;
+        color: #4f9aae;                   /* White text */
+    }
+    
+    .address-info {
+        display: flex;
+        flex-direction: column;  /* Stack address lines vertically */
+        gap: 5px;  /* Space between the street and city */
+        flex: 1;  /* Allow address section to take available space */
+    }
+    
+    .address-info p {
+        font-family: "Red Hat Display", Helvetica, Arial, sans-serif;
+        color: #d8e7d5;                   /* White text */
+    }
+
+    .contact-info-container {
+        display: flex;
+        flex-direction: column;  /* Stack the contact info vertically */
+        gap: 10px;  /* Space between phone and email */
+        align-items: left;  /* Align contact info to the right */
+    }
+    
+    .contact-info {
+        display: flex;
+        align-items: center;
+        gap: 8px;  /* Space between icon and text */
+    }
+    
+    .material-icons {
+        font-size: 20px;
+    }
+    
+    .contact-text {
+        font-family: 'Red Hat Display', sans-serif;
+        color: #d8e7d5;
+    }
+
+    .phone-icon {
+        color: #ddb43a;
+    }
+    
+    .email-icon {
+        color: #ddb43a;
+    }
+
+    .generalcontact-layout {
+        background: transparent;
+        border-radius: 8px;
+        overflow: hidden;
+        width: 70%;
+        transition: transform 0.3s ease-in-out;
+        padding: 0px;
+    }
+
+    .generalcontact-container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 0px; /* Optional: can be removed if you're using space-between */
+    }
+    
+    .generalcontact-card {
+        flex: 0 1 calc(50% - 1px); /* Two cards per row with spacing */
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        align-items: flex-start;
+        background: linear-gradient(to bottom, #636372 30%, #5a5a67 80%);
+        border-radius: 0px;
+        overflow: hidden;
+        padding: 20px 20px;
+        max-width: 100%;
+    }
+    
+    .generalcontact-card h3 {
+        text-align: center;
+    }
+    
+    .generalcontact-card p:not(.contact-info) {
+        text-align: center;
+    }
+    
+    .generalcontact-card:hover {
+        transform: translateY(-0px);
+    }
+    
+    .generalcontact-content {
+        display: flex;
+        flex-direction: column;  /* Stack header, address, and contact info vertically */
+        align-items: flex-start; /* Align everything to the left */
+        gap: 20px;  /* Space between each section */
+        width: 100%;
+        padding-left: 50px;
+    }
+
+    .generalcontact-content h3 {
+        text-align: left;
+        margin: 0;  /* Removes default margin */
+        padding: 0; /* Removes default padding */
+        padding: 0px 10px; /* Optional: add spacing */
+        color: #85c74e;
+        font-family: 'Red Hat Display', sans-serif;
+        width: 100%;
+    }
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
@@ -1569,6 +1713,15 @@ appflashmain {
         width: 200px;
         padding: 20px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .location-item {
+        flex: 1 1 100%;
+    }
+
+    .location-card {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 
     .nav-links.active {
@@ -1608,5 +1761,10 @@ appflashmain {
     .services-info-content {
         flex-direction: column;
         gap: 0; /* or 0 if you want no gap at all */
+    }
+
+    .generalcontact-card {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 }
