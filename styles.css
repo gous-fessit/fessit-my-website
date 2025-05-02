@@ -58,7 +58,7 @@ html, body {
 }
 
 .logo-img {
-	height: 28px; /* or whatever size fits your navbar */
+	height: 26px; /* or whatever size fits your navbar */
 	width: auto;
 	display: block;
 }
