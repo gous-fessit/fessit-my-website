@@ -58,7 +58,7 @@ html, body {
 }
 
 .logo-img {
-	height: 40px; /* or whatever size fits your navbar */
+	height: 28px; /* or whatever size fits your navbar */
 	width: auto;
 	display: block;
 }
@@ -68,7 +68,7 @@ html, body {
     color: #ccc;
     font-weight: normal;
     margin-top: 5px;
-	margin-left:5px;
+	margin-left:0px;
     font-family: 'Red Hat Display', sans-serif;
 }
 
