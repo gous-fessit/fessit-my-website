@@ -1,194 +1,756 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FessiT Solutions Pvt. Ltd.</title>
+    <title>FessiT Solutions - IoT & Digital Transformation Experts</title>
+    <meta name="description" content="FessiT Solutions - Leading IoT and digital transformation company providing innovative solutions for businesses worldwide.">
     
-    <!-- Adobe Fonts for Avenir Next LT Pro (replace with your kit ID) -->
-	<link rel="preload" href="fonts/RedHatDisplay-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-	<link rel="preload" href="fonts/RedHatDisplay-Italic-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-	<link rel="stylesheet" href="styles.css">
-	<!-- Google Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-    <!-- Fixed Header with Navigation -->
-    <header>
-		<nav class="navbar">
-			<div class="logo-container">
-				<div class="logo">
-					<img src="FessiTLogoTrans.png" alt="FessiT Solutions Logo" class="logo-img">
-				</div>
-				<div class="tagline">Force behind your transformation</div>
-			</div>
-			<ul class="nav-links">
-				<li><a href="#home">Home</a></li>
-				<li><a href="#services">Services</a></li>
-				<li><a href="applications.html">Applications</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-			<div class="menu-toggle">☰</div> <!-- Hamburger Menu -->
-		</nav>
-	</header>
+    <!-- Preload Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f4ff',
+                            100: '#e0e9ff',
+                            200: '#c7d7fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        },
+                        dark: {
+                            900: '#0a0f1e',
+                            800: '#111827',
+                            700: '#1f2937',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                    },
+                },
+                container: {
+                    center: true,
+                    padding: {
+                        DEFAULT: '1rem',
+                        sm: '2rem',
+                        lg: '4rem',
+                        xl: '5rem',
+                        '2xl': '6rem',
+                    },
+                },
+            },
+            plugins: [],
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #818cf8;
+            --dark: #0a0f1e;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #1f2937;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+        
+        .dark body {
+            background-color: #0a0f1e;
+            color: #e5e7eb;
+        }
+        
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #6366f1, #8b5cf6);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+            min-height: calc(100vh - 5rem);
+            display: flex;
+            align-items: center;
+        }
+        
+        .dark .hero-gradient {
+            background: linear-gradient(135deg, #0c4a6e 0%, #075985 50%, #0369a1 100%);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+        }
+        
+        .card-hover {
+            @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+        }
+        
+        .nav-link {
+            @apply relative text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors duration-200 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-primary-500 after:transition-all after:duration-300 hover:after:w-4/5;
+        }
+        
+        .btn {
+            @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500;
+        }
+        
+        .btn-primary {
+            @apply bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 shadow-lg hover:shadow-primary-500/30;
+        }
+        
+        .btn-outline {
+            @apply border-2 border-primary-500 text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20;
+        }
+        
+        .section {
+            @apply py-20 md:py-28 lg:py-32;
+        }
+        
+        .container-narrow {
+            @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+        }
+        
+        /* Animated gradient border */
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 1rem;
+            padding: 2px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+    </style>
+<body class="font-sans antialiased text-gray-800 bg-white dark:bg-dark-900 overflow-x-hidden">
+    <!-- Preloader (temporarily hidden for debugging) -->
+    <div id="preloader" class="hidden fixed inset-0 bg-white dark:bg-dark-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="relative">
+            <div class="h-16 w-16 rounded-full bg-gradient-to-r from-primary-500 to-primary-400 animate-pulse"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+            </div>
+        </div>
+        <p class="mt-4 text-gray-600 dark:text-gray-300 font-medium">Loading FessiT Solutions</p>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div class="absolute top-1/3 right-1/4 w-72 h-72 bg-purple-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-1/4 right-1/3 w-80 h-80 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-white dark:bg-dark-900 border-b border-gray-200 dark:border-gray-800 shadow-sm" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <img src="FessiTLogoTrans.png" alt="FessiT Solutions" class="h-10 w-auto transition-transform duration-300 group-hover:scale-105">
+                    <span class="hidden md:inline-block text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-primary-500 transition-colors">
+                        Force behind your transformation
+                    </span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="#home" class="nav-link group relative px-4 py-2.5 text-sm font-medium">
+                        <span class="relative z-10">Home</span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    </a>
+                    <a href="#services" class="nav-link group relative px-4 py-2.5 text-sm font-medium">
+                        <span class="relative z-10">Services</span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    </a>
+                    <a href="applications.html" class="nav-link group relative px-4 py-2.5 text-sm font-medium">
+                        <span class="relative z-10">Applications</span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    </a>
+                    <a href="about.html" class="nav-link group relative px-4 py-2.5 text-sm font-medium">
+                        <span class="relative z-10">About Us</span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    </a>
+                    <a href="#contact" class="ml-4 px-6 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-medium rounded-xl hover:shadow-lg hover:shadow-primary-500/30 hover:-translate-y-0.5 transition-all duration-300 flex items-center">
+                        <span>Get in Touch</span>
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                    <button id="theme-toggle" class="ml-2 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+                        </svg>
+                    </button>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+                        <svg id="theme-toggle-dark-icon-mobile" class="hidden w-5 h-5 text-gray-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon-mobile" class="hidden w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors lg:hidden">
+                        <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-dark-800 shadow-xl rounded-lg mx-4 mt-2 py-2">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg mx-2 transition-colors">
+                    Home
+                </a>
+                <a href="#services" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg mx-2 transition-colors">
+                    Services
+                </a>
+                <a href="applications.html" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg mx-2 transition-colors">
+                    Applications
+                </a>
+                <a href="about.html" class="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg mx-2 transition-colors">
+                    About Us
+                </a>
+                <div class="px-4 pt-2 pb-4">
+                    <a href="#contact" class="w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                        Get in Touch
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <!-- Scrollable Content -->
-    <main>
-        <!-- Vision/Mission Section -->
-        <section id="home" class="vision-mission">
-            <div class="vision-mission-content">
-                <div class="left-column">
-                    <h2>Our Vision:</h2>
-                    <p>At FessiT Solutions Pvt Ltd, we envision a future where innovative, smarter, scalable, and effective solutions empower businesses to thrive. We aim to be the core driving force behind your transformation, delivering tailored solutions that meet your unique needs and set the foundation for sustained success.</p>
-                    <h2>Our Mission:</h2>
-                    <p>Our mission is to drive your success and growth by serving as an essential partner in your journey of innovation, development, and integration. We are committed to providing cutting-edge solutions and unwavering support to help you achieve your goals and transform your business.</p>
+    <main class="pt-20 relative z-0">
+        <!-- Hero Section -->
+        <section id="home" class="relative overflow-hidden bg-white dark:bg-gray-900 pt-2">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 overflow-hidden -z-10">
+                <div class="absolute top-0 right-0 w-72 h-72 bg-blue-100 dark:bg-blue-900/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                <div class="absolute top-0 right-0 w-96 h-96 bg-purple-100 dark:bg-purple-900/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+                <div class="absolute bottom-0 left-0 w-80 h-80 bg-pink-100 dark:bg-pink-900/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            </div>
+
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Left Column - Content -->
+                    <div class="space-y-8 relative z-10">
+                        <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium backdrop-blur-sm">
+                            <span class="flex h-2 w-2 rounded-full bg-blue-500 mr-2"></span>
+                            <span>Innovating for a Smarter Future</span>
+                        </div>
+                        
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
+                            Transforming Ideas into <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Digital Reality</span>
+                        </h1>
+                        
+                        <p class="text-xl text-gray-600 dark:text-gray-300">
+                            We help businesses leverage cutting-edge IoT and digital transformation solutions to solve complex challenges and drive sustainable growth in an increasingly connected world.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-blue-600 border border-transparent rounded-lg shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 transform hover:-translate-y-1">
+                                Get Started
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                            <a href="#services" class="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-blue-700 bg-blue-100 border border-transparent rounded-lg hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 dark:bg-blue-900/30 dark:text-blue-300 dark:hover:bg-blue-800/50">
+                                Our Services
+                            </a>
+                        </div>
+                        
+                        
+                    </div>
+                        
+                    <!-- Right Column - SVG Illustration -->
+                    <div class="relative z-10 mt-12 md:mt-0">
+                        <div class="relative w-full h-96 md:h-[32rem]">
+                            <!-- Main SVG Illustration -->
+                            <svg class="w-full h-full" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Background Shape -->
+                                <path d="M450 250C450 361.046 361.046 450 250 450C138.954 450 50 361.046 50 250C50 138.954 138.954 50 250 50C361.046 50 450 138.954 450 250Z" fill="#EFF6FF" class="dark:opacity-20"/>
+                                <!-- Main Device -->
+                                <rect x="150" y="100" width="200" height="300" rx="10" fill="#FFFFFF" class="shadow-xl dark:bg-gray-800"/>
+                                <rect x="170" y="120" width="160" height="200" rx="4" fill="#3B82F6" opacity="0.8"/>
+                                <!-- Screen Content -->
+                                <circle cx="250" cy="220" r="30" fill="#10B981"/>
+                                <rect x="220" y="260" width="60" height="4" rx="2" fill="#6B7280"/>
+                                <rect x="210" y="270" width="80" height="3" rx="1.5" fill="#9CA3AF" opacity="0.7"/>
+                                <!-- Icons -->
+                                <circle cx="200" cy="350" r="15" fill="#8B5CF6"/>
+                                <circle cx="250" cy="350" r="15" fill="#EC4899"/>
+                                <circle cx="300" cy="350" r="15" fill="#10B981"/>
+                                <!-- Decorative Elements -->
+                                <circle cx="100" cy="150" r="8" fill="#3B82F6" opacity="0.7"/>
+                                <circle cx="500" cy="200" r="12" fill="#8B5CF6" opacity="0.7"/>
+                                <circle cx="400" cy="100" r="10" fill="#EC4899" opacity="0.7"/>
+                                <circle cx="150" cy="400" r="8" fill="#10B981" opacity="0.7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
-                <div class="right-column">
-                    <h2>Our Core Strengths</h2>
-                    <p>We measure our company performance and customer satisfaction based on our core strengths and always put constant efforts to improve on these core strengths to provide quality, timely deliverables and aiming for long term relationship with the customers. We believe in</p>
-                    <div class="core-strengths-container">
-						<img src="fessit_principles.png" alt="Technologies Image" class="core-strengths-image" />
-					</div>
+            </div>
+            
+            <!-- Vision & Mission Section -->
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <!-- Vision -->
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/20 rounded-2xl p-8 shadow-lg border border-blue-100 dark:border-blue-900/30">
+                        <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/40 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Our Vision</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            At FessiT Solutions Pvt Ltd, we envision a future where innovative, smarter, scalable, and effective solutions empower businesses to thrive. We aim to be the core driving force behind your transformation, delivering tailored solutions that meet your unique needs and set the foundation for sustained success.
+                        </p>
+                    </div>
+                    
+                    <!-- Mission -->
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/20 rounded-2xl p-8 shadow-lg border border-purple-100 dark:border-purple-900/30">
+                        <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/40 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Our Mission</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Our mission is to drive your success and growth by serving as an essential partner in your journey of innovation, development, and integration. We are committed to providing cutting-edge solutions and unwavering support to help you achieve your goals and transform your business.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Core Strengths Section -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Core Strengths</h2>
+                                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                                    We measure our success by consistently delivering excellence through our core strengths, ensuring quality, timely delivery, and building lasting relationships with our clients.
+                                </p>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-3 gap-8">
+                                <!-- Strength 1 -->
+                                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
+                                    <div class="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                                        <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-center text-gray-900 dark:text-white mb-3">Technical Expertise</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 text-center">
+                                        Our team of certified professionals brings deep technical knowledge and hands-on experience in cutting-edge technologies and industry best practices.
+                                    </p>
+                                </div>
+                                
+                                <!-- Strength 2 -->
+                                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
+                                    <div class="w-16 h-16 bg-green-50 dark:bg-green-900/20 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                                        <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-center text-gray-900 dark:text-white mb-3">Timely Delivery</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 text-center">
+                                        We understand the value of your time. Our agile development process ensures projects are delivered on schedule without compromising quality.
+                                    </p>
+                                </div>
+                                
+                                <!-- Strength 3 -->
+                                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
+                                    <div class="w-16 h-16 bg-purple-50 dark:bg-purple-900/20 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                                        <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-center text-gray-900 dark:text-white mb-3">Client-Centric Approach</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 text-center">
+                                        Your success is our priority. We work closely with clients to understand their unique needs and deliver customized solutions that drive real business value.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-		<!-- Services Section -->
-        <section id="services" class="services">
-			<div></div>
-			<h2>Our Services</h2>
-			<div class="services-container">
-				<div class="service-card">
-					<img src="software-dev-card.png" alt="Service 1" class="service-image">
-					<div class="service-content">
-						<h3>Software Development</h3>
-						<p style="text-align: justify;">Software development services involving Digital Transformation, IoT, Automotive, Medical, and Industry 4.0. We specialized in designing and optimizing systems that provides scalability, performance and integrate seamlessly with cloud services, ensuring efficiency, scalability, and real-time data management.</p>
-					</div>
-					<div class="learn-more-container">
-						<a href="software_services.html" class="learn-more">
-							LEARN MORE
-							<span class="arrow">&gt;</span> <!-- Greater-than symbol as the right arrow -->
-						</a>
-					</div>
-				</div>
-				<div class="service-card">
-					<img src="firmware-dev-card1.jpg" alt="Service 2" class="service-image">
-					<div class="service-content">
-						<h3>Firmware Development</h3>
-						<p style="text-align: justify;">Firmware development and customization that power IoT devices, ensuring efficient communication, real-time processing, reliable operation in diverse environments. Solutions for low-level device control to cloud integration that are secure, scalable & performance-driven for a wide range of IoT applications.</p>
-					</div>
-					<div class="learn-more-container">
-						<a href="firmware_services.html" class="learn-more">
-							LEARN MORE
-							<span class="arrow">&gt;</span> <!-- Greater-than symbol as the right arrow -->
-						</a>
-					</div>
-				</div>
-				<div class="service-card">
-					<img src="Hardware-dev-card.jpg" alt="Service 3" class="service-image">
-					<div class="service-content">
-						<h3>Hardware Development</h3>
-						<p style="text-align: justify;">Hardware design services for end-to-end hardware design, from concept to prototyping, ensuring efficient, reliable & cost-effective solutions for IoT, automotive, medical & industrial applications. Our hardware designs that meet industry standards, enhance system performance & support future scalability.</p>
-					</div>
-					<div class="learn-more-container">
-						<a href="hardware_services.html" class="learn-more">
-							LEARN MORE
-							<span class="arrow">&gt;</span> <!-- Greater-than symbol as the right arrow -->
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="contact" class="contact">
-			<div class ="FessiTName">FessiT Solutions Pvt. Ltd.</div>
-			<div class="contact-container">
-			    <div class="generalcontact-layout">
-					<div class="generalcontact-container">
-						<div class="generalcontact-card">
-							<div class="generalcontact-content">
-								<h3>General Enquiry</h3>
-								<div class="info-container">
-									<div class="contact-info-container">
-										<div class="contact-info">
-											<span class="material-icons phone-icon">phone</span>
-											<span class="contact-text">+91 99023 04404</span>
-										</div>
-										<div class="contact-info">
-											<span class="material-icons email-icon">email</span>
-											<span class="contact-text">info@fessitsol.com</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="generalcontact-card">
-							<div class="generalcontact-content">
-								<h3>For Support</h3>
-								<div class="info-container">
-									<div class="contact-info-container">
-										<div class="contact-info">
-											<span class="material-icons phone-icon">phone</span>
-											<span class="contact-text">+91 99023 04404</span>
-										</div>
-										<div class="contact-info">
-											<span class="material-icons email-icon">email</span>
-											<span class="contact-text">support@fessitsol.com</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>	
-				</div>
-				<div class="contact-layout">
-					<div class="contact-content">
-						<h3>Contact Us</h3>
-						<form class="contact-form">
-							<div class="contact-form-row">
-								<div class="contact-form-group">
-									<label for="firstName">First Name *</label>
-									<input type="text" id="firstName" name="firstName" required>
-								</div>
-								<div class="contact-form-group">
-									<label for="lastName">Last Name *</label>
-									<input type="text" id="lastName" name="lastName" required>
-								</div>
-							</div>
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 relative z-10">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-2 text-sm font-medium text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 rounded-full mb-4">
+                        What We Offer
+                    </span>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Comprehensive Services</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">End-to-end solutions tailored to transform your business with cutting-edge technology</p>
+                </div>
 
-							<div class="contact-form-row">
-								<div class="contact-form-group">
-									<label for="email">Company *</label>
-									<input type="text" id="company" name="company">
-								</div>
-								<div class="contact-form-group">
-									<label for="country">Email *</label>
-									<input type="email" id="email" name="email" required>
-								</div>
-							</div>
+                <div class="grid md:grid-cols-2 gap-8 relative z-10">
+                    <!-- Custom Software Development -->
+                    <div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+                        <div class="p-8">
+                            <div class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
+                                <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Custom Software Development</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6">Tailored software solutions that drive efficiency, from web applications to enterprise systems, built with cutting-edge technologies.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Web & Mobile Applications
+                                </li>
+                                <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Cloud Solutions
+                                </li>
+                                <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    API Integration
+                                </li>
+                            </ul>
+                            <a href="#contact" class="inline-flex items-center font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 group-hover:underline">
+                                Get Started
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
 
-							<div class="contact-form-row">
-								<div class="contact-form-group wide-country">
-									<label for="company">Country</label>
-									<input type="text" id="country" name="country">
-								</div>
-							</div>
-							<div class="contact-form-row">
-								<div class="contact-form-group wide-country">
-									<label for="company">What is your question?</label>
-									<textarea id="country" name="country" rows="5"></textarea>
-								</div>
-							</div>
-							<div class="contact-form-row"></div>
-							<div class="contact-form-row"></div>
-							<div class="contact-form-row">
-								<button type="submit" class="submit-button">SUBMIT</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</section>
+                    <!-- IoT & Hardware Solutions -->
+                    <div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+                        <div class="p-8">
+                            <div class="w-14 h-14 bg-purple-50 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-100 dark:group-hover:bg-purple-900/50 transition-colors">
+                                <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6h2m-2-6h18M5 15h16m-1-6v6m-9-6h.01M12 15h.01M12 12h.01M12 9h.01M12 6h.01"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">IoT & Hardware Solutions</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6">End-to-end IoT solutions that connect your physical assets to the digital world, enabling data-driven decision making.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Smart Devices
+                                </li>
+                                <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Sensor Networks
+                                </li>
+                                <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Edge Computing
+                                </li>
+                            </ul>
+                            <a href="#contact" class="inline-flex items-center font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 group-hover:underline">
+                                Learn More
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Digital Transformation -->
+                    <div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+                        <div class="p-8">
+                            <div class="w-14 h-14 bg-amber-50 dark:bg-amber-900/30 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-100 dark:group-hover:bg-amber-900/50 transition-colors">
+                                <svg class="w-8 h-8 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Digital Transformation</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6">Strategic consulting and implementation services to help businesses embrace digital innovation and automation.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Process Automation
+                                </li>
+                                <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Data Analytics
+                                </li>
+                                <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Cloud Migration
+                                </li>
+                            </ul>
+                            <a href="#contact" class="inline-flex items-center font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 group-hover:underline">
+                                Start Your Journey
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hardware Development -->
+                    <div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+                        <div class="p-8">
+                            <div class="w-14 h-14 bg-green-50 dark:bg-green-900/30 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-100 dark:group-hover:bg-green-900/50 transition-colors">
+                                <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6h2m-2-6h18M5 15h16m-1-6v6m-9-6h.01M12 15h.01M12 12h.01M12 9h.01M12 6h.01"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Hardware Development</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6">Custom hardware solutions designed and developed to meet your specific requirements and business needs.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    PCB Design
+                                </li>
+                                <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Prototyping
+                                </li>
+                                <li class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Product Development
+                                </li>
+                            </ul>
+                            <a href="#contact" class="inline-flex items-center font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 group-hover:underline">
+                                Let's Build
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <p class="text-gray-600 dark:text-gray-300 mb-8">Looking for something specific? We offer custom solutions tailored to your unique needs.</p>
+                    <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-xl text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 md:py-4 md:text-lg md:px-10 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg">
+                        Discuss Your Project
+                        <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Second Row of Services -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mt-8">
+
+                </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">Have a project in mind or want to know more about our services? We'd love to hear from you.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div class="space-y-8">
+                        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Information</h3>
+                            
+                            <div class="space-y-6">
+                                <!-- General Enquiry -->
+                                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">General Enquiry</h4>
+                                    <div class="space-y-4">
+                                        <div class="flex items-start space-x-4">
+                                            <span class="text-primary-600 dark:text-primary-400">
+                                                <span class="material-icons">phone</span>
+                                            </span>
+                                            <a href="tel:+919902304404" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">+91 99023 04404</a>
+                                        </div>
+                                        <div class="flex items-start space-x-4">
+                                            <span class="text-primary-600 dark:text-primary-400">
+                                                <span class="material-icons">email</span>
+                                            </span>
+                                            <a href="mailto:info@fessitsol.com" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">info@fessitsol.com</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Support -->
+                                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Support</h4>
+                                    <div class="space-y-4">
+                                        <div class="flex items-start space-x-4">
+                                            <span class="text-primary-600 dark:text-primary-400">
+                                                <span class="material-icons">support_agent</span>
+                                            </span>
+                                            <a href="tel:+919902304404" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">+91 99023 04404</a>
+                                        </div>
+                                        <div class="flex items-start space-x-4">
+                                            <span class="text-primary-600 dark:text-primary-400">
+                                                <span class="material-icons">email</span>
+                                            </span>
+                                            <a href="mailto:support@fessitsol.com" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">support@fessitsol.com</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">FessiT Solutions Pvt. Ltd.</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Force behind your transformation. Delivering innovative and scalable solutions for your business needs.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send us a Message</h3>
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="firstName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required 
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
+                                </div>
+                                <div>
+                                    <label for="lastName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="company" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Company</label>
+                                    <input type="text" id="company" name="company"
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email *</label>
+                                    <input type="email" id="email" name="email" required
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="country" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Country</label>
+                                <input type="text" id="country" name="country"
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all">
+                            </div>
+
+                            <div>
+                                <label for="question" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">What is your question?</label>
+                                <textarea id="question" name="question" rows="4"
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"></textarea>
+                            </div>
+
+                            <div class="pt-2">
+                                <button type="submit" 
+                                    class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                                    SEND MESSAGE
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Include script at the end -->
